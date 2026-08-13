@@ -1,0 +1,580 @@
+/* Portfolio (Emata Style Layout) */
+
+.portfolio-page {
+  background-color: #fcfcfc;
+  color: #111;
+  overflow-x: hidden;
+  padding-bottom: 0;
+}
+
+/* Base Utility Classes */
+.port-section {
+  padding: 3rem 5%;
+}
+
+.port-section-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.port-btn-black {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.port-btn-black:hover {
+  background: #333;
+}
+
+/* 1. Split Hero Section */
+.port-hero {
+  display: flex;
+  height: 90vh;
+  min-height: 600px;
+  align-items: center;
+}
+
+.port-hero-text {
+  flex: 1;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.port-title {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.port-subtitle {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.port-hero-image {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.port-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 2. Horizontal Carousel (Collections & Reviews) */
+.port-carousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.port-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.port-card {
+  flex: 0 0 calc(25% - 1.5rem);
+  min-width: 250px;
+}
+
+.port-card-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: #eee;
+}
+
+.port-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.port-card:hover .port-card-img img {
+  transform: scale(1.05);
+}
+
+.port-card-info h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.port-card-info p {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* 3. Asymmetric About Us */
+.port-about {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.port-about-left {
+  flex: 1;
+}
+
+.port-about-left p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #444;
+  max-width: 400px;
+}
+
+.port-about-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.about-img-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.about-img-row img {
+  flex: 1;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* 4. Typologies Bento Grid */
+.port-cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 250px 250px;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.cat-box {
+  position: relative;
+  overflow: hidden;
+  background: #eee;
+}
+
+.cat-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cat-box:hover img {
+  transform: scale(1.05);
+}
+
+.cat-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.2rem 0.5rem;
+}
+
+.cat-tall {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.cat-wide {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+}
+
+.cat-square-1 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.cat-square-2 {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.cat-action {
+  text-align: center;
+}
+
+/* 5. Newsletter Banner */
+.port-newsletter {
+  display: flex;
+  height: 400px;
+  background: #fff;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.news-image {
+  flex: 1;
+  height: 100%;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+}
+
+.news-content h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.news-content p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 300px;
+}
+
+.news-form {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.news-form input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  background: transparent;
+  outline: none;
+}
+
+.news-form input:focus {
+  border-bottom-color: #000;
+}
+
+/* 6. Reviews */
+.review-card {
+  flex: 0 0 calc(33.333% - 1.33rem);
+  min-width: 280px;
+  border: 1px solid #eaeaea;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.review-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-card h4 {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.review-card p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #555;
+  font-style: italic;
+}
+
+/* 7. Footer */
+.port-footer {
+  padding: 4rem 5%;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  gap: 2rem;
+  background: #fff;
+}
+
+.footer-logo h2 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 2rem;
+  width: 200px;
+}
+
+.footer-links {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-col h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-col a, .footer-col p {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a:hover {
+  color: #000;
+}
+
+.newsletter-col input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  background: transparent;
+  outline: none;
+}
+
+/* 8. Process (Circular Shapes) */
+.port-process {
+  background: #fff;
+}
+.text-center { text-align: center; }
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+.process-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem auto;
+}
+.process-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.process-step:hover .process-circle img {
+  transform: scale(1.1);
+}
+.process-step h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.process-step p {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* 9. Signature Gallery (Staggered Arches/Pills) */
+.port-signature {
+  background: #fcfcfc;
+}
+.signature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sig-item {
+  overflow: hidden;
+  background: #eee;
+}
+.sig-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sig-pill {
+  width: 120px;
+  height: 240px;
+  border-radius: 999px;
+}
+.sig-arch-tall {
+  width: 180px;
+  height: 280px;
+  border-radius: 100px 100px 0 0;
+}
+.sig-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.sig-arch-wide {
+  width: 220px;
+  height: 160px;
+  border-radius: 110px 110px 0 0;
+}
+
+/* 10. Featured Showcase (Full-Bleed) */
+.port-showcase {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+.showcase-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.showcase-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.showcase-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+.showcase-content {
+  position: relative;
+  z-index: 2;
+}
+.showcase-title {
+  font-family: var(--font-script);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 400;
+  color: #8bb3db; /* Light blue from screenshot */
+  margin-bottom: 1rem;
+}
+.showcase-content p {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+  .port-hero {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+  .port-hero-text {
+    padding: 4rem 5%;
+    align-items: center;
+    text-align: center;
+  }
+  .port-hero-image {
+    width: 100%;
+    height: 50vh;
+  }
+  
+  .port-about {
+    flex-direction: column;
+  }
+  
+  .port-newsletter {
+    flex-direction: column;
+    height: auto;
+  }
+  .news-image {
+    height: 300px;
+  }
+  
+  .port-footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .port-cat-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+  .cat-tall, .cat-wide, .cat-square-1, .cat-square-2 {
+    grid-column: 1 / 2;
+    grid-row: auto;
+    height: 250px;
+  }
+  .news-form {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,471 @@
+/* Studio/About Page (Beige Editorial Layout) */
+
+.studio-page {
+  background-color: #Eae9e4; /* Beige background */
+  color: #1a1a1a;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+.studio-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* 1. Hero Overlay Section */
+.studio-hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.studio-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.studio-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.studio-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(234, 233, 228, 0.4); /* Slight beige tint over image */
+}
+
+.studio-hero-content {
+  position: relative;
+  z-index: 2;
+  margin-top: -10vh; /* Push title up slightly as in screenshot */
+}
+
+.studio-hero-title {
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  text-transform: none;
+}
+
+/* 2. About Us Text */
+.studio-about-text {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+.studio-section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.studio-section-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+
+.studio-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* 3. Stats Grid (Reused from Home but matching beige layout) */
+.studio-stats-section {
+  padding-bottom: 8rem;
+}
+
+.studio-stats-heading {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.studio-stats-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 2rem;
+}
+
+.studio-stat-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid rgba(0,0,0,0.1);
+  padding-left: 1.5rem;
+}
+
+.studio-stat-box.main-stat {
+  border-left: none;
+  padding-left: 0;
+}
+
+.studio-stat-desc {
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  max-width: 250px;
+}
+
+.studio-stat-number {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* 4. Our Philosophy (Arch) */
+.studio-philosophy {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d1cbc1; /* Slightly darker beige block for contrast */
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.philosophy-images-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.philosophy-arch-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-main {
+  width: 350px;
+  height: 500px;
+  border-radius: 200px 200px 0 0;
+}
+
+.arch-left, .arch-right {
+  width: 250px;
+  height: 350px;
+  border-radius: 125px 125px 0 0;
+  opacity: 0.9;
+}
+
+.arch-outer-left, .arch-outer-right {
+  width: 150px;
+  height: 220px;
+  border-radius: 75px 75px 0 0;
+  opacity: 0.7;
+}
+
+.philosophy-arch-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.philosophy-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(3rem, 6vw, 6rem);
+  color: #fff;
+  text-align: center;
+  line-height: 0.9;
+  z-index: 2;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.philosophy-text {
+  position: absolute;
+  bottom: 2rem;
+  right: 10%;
+  text-align: right;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #111;
+  z-index: 10;
+  background: rgba(234, 233, 228, 0.8);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  max-width: 300px;
+}
+
+/* 5. Team Section */
+.studio-team-section {
+  padding-bottom: 6rem;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+
+.team-header h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  max-width: 300px;
+  line-height: 1.3;
+}
+
+.team-header p {
+  font-size: 0.85rem;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.team-card {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #333; /* Dark base */
+}
+
+.team-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.team-card:hover img {
+  filter: grayscale(0%);
+}
+
+.team-info {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: #fff;
+}
+
+.team-info h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.team-info p {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.team-footer-text {
+  font-size: 0.85rem;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.team-link {
+  font-size: 0.85rem;
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
+/* 6. Contact Form Section */
+.studio-contact-section {
+  padding-bottom: 6rem;
+}
+
+.contact-header {
+  margin-bottom: 3rem;
+}
+
+.contact-header h2 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.9;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.grey-text {
+  color: #888;
+}
+
+.contact-studio-name {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.studio-form {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  background: transparent;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.form-row.full-width input {
+  width: 100%;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  margin: 1rem 0;
+  color: #666;
+}
+
+.form-submit-btn {
+  background: #4a453d; /* Dark brownish grey from screenshot */
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.form-submit-btn:hover {
+  background: #222;
+}
+
+/* Minimal Footer */
+.studio-footer-minimal {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  text-transform: uppercase;
+}
+
+.contact-info {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+  .studio-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .studio-stat-box {
+    border-left: none;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+  .studio-stat-box.main-stat {
+    border-top: none;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .philosophy-title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .philosophy-arch-wrapper {
+    width: 250px;
+    height: 350px;
+  }
+
+  .philosophy-text {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .studio-philosophy {
+    flex-direction: column;
+    height: auto;
+    padding-top: 2rem;
+  }
+}
