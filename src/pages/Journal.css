@@ -1,7 +1,7 @@
 .journal-page {
   background-color: var(--bg-color);
-  padding-top: 4rem;
-  padding-bottom: 8rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 
 .journal-header {

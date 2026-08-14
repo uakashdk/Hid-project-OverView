@@ -62,6 +62,10 @@ const Portfolio = () => {
         <div className="port-hero-text">
           <h1 className="port-title">Studio HID.</h1>
           <p className="port-subtitle">Bespoke luxury architecture and interior design.</p>
+          <p className="port-hero-copy">
+            We shape refined homes, hospitality spaces, and commercial interiors through
+            careful planning, tactile materials, and a calm architectural language.
+          </p>
           <button className="port-btn-black">SHOP NOW</button>
         </div>
         <div className="port-hero-image">

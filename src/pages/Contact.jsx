@@ -61,7 +61,7 @@ const Contact = () => {
             
             <div className="form-group">
               <label>Project Details</label>
-              <textarea placeholder="Tell us about your vision..." rows="5"></textarea>
+              <textarea placeholder="Tell us about your vision..." rows="3"></textarea>
             </div>
             
             <button type="submit" className="submit-btn">SEND INQUIRY</button>

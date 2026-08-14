@@ -145,7 +145,7 @@
 
 /* 2. Stats Bento */
 .home-stats {
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding: 8rem 5vw 4rem;
 }
 
@@ -181,6 +181,12 @@
 .bento-link {
   margin-top: 2rem;
   align-self: flex-start;
+}
+
+.bento-dark .bento-link:hover {
+  background: #fff;
+  border-color: rgba(255, 255, 255, 0.95);
+  color: #111;
 }
 
 .bento-link.dark {

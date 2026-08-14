@@ -9,7 +9,7 @@
 
 /* Base Utility Classes */
 .port-section {
-  padding: 3rem 5%;
+  padding: 2rem 5%;
 }
 
 .port-section-title {
@@ -17,7 +17,7 @@
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   font-weight: 400;
 }
 
@@ -42,16 +42,17 @@
   display: flex;
   height: 90vh;
   min-height: 600px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .port-hero-text {
   flex: 1;
   padding: 0 5%;
+  padding-top: 5.5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .port-title {
@@ -71,6 +72,14 @@
   color: #555;
 }
 
+.port-hero-copy {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+  max-width: 440px;
+  margin-bottom: 2rem;
+}
+
 .port-hero-image {
   flex: 1;
   height: 100%;
@@ -84,6 +93,11 @@
 }
 
 /* 2. Horizontal Carousel (Collections & Reviews) */
+.port-collections {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .port-carousel {
   display: flex;
   gap: 2rem;
@@ -137,6 +151,8 @@
   display: flex;
   gap: 2rem;
   align-items: stretch;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .port-about-left {
@@ -176,6 +192,11 @@
 }
 
 /* 4. Typologies Bento Grid */
+.port-categories {
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
 .port-cat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -300,6 +321,10 @@
 }
 
 /* 6. Reviews */
+.port-reviews {
+  padding-bottom: 1rem;
+}
+
 .review-card {
   flex: 0 0 calc(33.333% - 1.33rem);
   min-width: 280px;
@@ -400,6 +425,7 @@
 /* 8. Process (Circular Shapes) */
 .port-process {
   background: #fff;
+  padding-top: 1rem;
 }
 .text-center { text-align: center; }
 .process-grid {
