@@ -5,6 +5,7 @@ import Lenis from '@studio-freight/lenis';
 // Layout Components
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import FooterContact from './components/FooterContact';
 
 // Pages
 import Home from './pages/Home';
@@ -70,6 +71,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
         </Routes>
       </main>
+      {location.pathname !== '/contact' && location.pathname !== '/about' && <FooterContact />}
       <Footer />
     </>
   );

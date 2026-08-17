@@ -44,6 +44,47 @@ const StatCounter = ({ target, suffix = '' }) => {
 
 const About = () => {
   const containerRef = useRef(null);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+    consent: false
+  });
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitStatus('Submitting...');
+    try {
+      const response = await fetch('http://localhost:5555/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        setSubmitStatus('Message sent successfully!');
+        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '', consent: false });
+      } else {
+        setSubmitStatus('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setSubmitStatus('Failed to send message. Please try again.');
+    }
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -221,25 +262,26 @@ const About = () => {
             <span>Studio HID</span>
           </div>
 
-          <form className="studio-form">
+          <form className="studio-form" onSubmit={handleSubmit}>
             <div className="studio-form-row">
-              <input type="text" placeholder="First Name" />
-              <input type="text" placeholder="Last Name" />
+              <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="First Name" required />
+              <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder="Last Name" required />
             </div>
             <div className="studio-form-row">
-              <input type="email" placeholder="Email" />
-              <input type="tel" placeholder="Phone" />
+              <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" required />
+              <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="Phone" required />
             </div>
             <div className="studio-form-row studio-form-row-full">
-              <input type="text" placeholder="Tell us about your project" />
+              <input type="text" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell us about your project" required />
             </div>
             <div className="studio-form-actions">
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" name="consent" checked={formData.consent} onChange={handleInputChange} required />
                 I agree to the processing of personal data.
               </label>
               <button type="submit">SUBMIT</button>
             </div>
+            {submitStatus && <p style={{ marginTop: '1rem', color: '#666' }}>{submitStatus}</p>}
           </form>
 
           <div className="studio-footer-minimal">

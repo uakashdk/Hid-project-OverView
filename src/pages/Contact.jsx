@@ -79,6 +79,9 @@ const Contact = () => {
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     let ctx = gsap.context(() => {
       // Hero elements animation
@@ -124,21 +127,45 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.consent) {
-      setFormSubmitted(true);
-      setTimeout(() => {
-        setFormSubmitted(false);
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          message: '',
-          consent: false
-        });
-      }, 4000);
+    if (!formData.consent) return;
+
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      // Replace with your actual backend endpoint URL
+      const response = await fetch('http://localhost:5555/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            message: '',
+            consent: false
+          });
+        }, 4000);
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        setError(errorData.message || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError('Failed to connect to the server. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -230,9 +257,10 @@ const Contact = () => {
                 <span>I accept the consent to processing of personal data</span>
               </label>
 
-              <button type="submit" className="contact-submit-btn">
-                SUBMIT
+              <button type="submit" className="contact-submit-btn" disabled={isSubmitting}>
+                {isSubmitting ? 'SUBMITTING...' : 'SUBMIT'}
               </button>
+              {error && <div className="contact-error-msg" style={{ color: '#d9534f', marginTop: '15px', fontSize: '14px' }}>{error}</div>}
             </form>
           )}
         </div>
