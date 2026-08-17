@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowRight, ArrowDown } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Journal.css';
@@ -64,7 +65,7 @@ const Journal = () => {
     let ctx = gsap.context(() => {
       // Fade in hero section
       gsap.fromTo(
-        '.journal-hero > *',
+        '.journal-editorial-overlay > *',
         { opacity: 0, y: 35 },
         { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: 'power3.out' }
       );
@@ -94,32 +95,73 @@ const Journal = () => {
   return (
     <div className="journal-page" ref={containerRef}>
 
-      {/* 1. HERO HEADLINE & STATS */}
-      <section className="journal-hero container">
-        <div className="journal-hero-top">
-          <div className="journal-hero-left">
-            <span className="journal-tag">WHO WE ARE</span>
-            <h1 className="journal-hero-title">
-              Leading architecture studio making wellness-oriented luxury.
+      {/* 1. HERO BANNER (Home page look) */}
+      <section className="journal-hero-banner">
+        <div className="journal-hero-bg">
+          <img src="/images/project1.png" alt="Luxury Architecture Hero" />
+          <div className="journal-hero-overlay"></div>
+        </div>
+
+        <div className="journal-editorial-overlay">
+          <div className="journal-editorial-center">
+            <h1 className="massive-hid">
+              <div className="cut-line-left"></div>
+              HID
+              <div className="cut-line-right"></div>
             </h1>
           </div>
 
-          <div className="journal-hero-right">
-            <p className="journal-hero-subtext">
-              FROM HIGH-END RESIDENCES TO EXCLUSIVE COMMERCIAL SPACES, WE BRING ELEVATED DESIGN TO LIFE.
-            </p>
-            <div className="journal-stats-grid">
-              <div className="stat-item">
-                <span className="stat-num">9+</span>
-                <span className="stat-label">YEARS</span>
+          <div className="journal-editorial-bottom">
+            <div className="bottom-left-actions">
+              <Link to="/portfolio" className="bar-btn bar-btn--light">
+                VIEW SELECTED WORKS <ArrowRight size={16} />
+              </Link>
+              <Link to="/contact" className="bar-btn bar-btn--ghost">BEGIN ENQUIRY</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. STUDIO HEADLINE & STATS SECTION (Screenshot) */}
+      <section className="journal-studio-section journal-fade-up">
+        <div className="container journal-studio-container">
+          <div className="journal-vertical-label">
+            <span>BESPOKE LIVING SPACES — STUDIO</span>
+          </div>
+
+          <div className="journal-studio-content">
+            <div className="journal-studio-tag">(01) STUDIO</div>
+
+            <div className="journal-studio-grid">
+              <div className="journal-studio-left">
+                <h2 className="journal-studio-heading">
+                  <span>Leading architecture</span>
+                  <span>studio making</span>
+                  <span>wellness-oriented luxury.</span>
+                </h2>
               </div>
-              <div className="stat-item">
-                <span className="stat-num">70</span>
-                <span className="stat-label">PROJECTS</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-num">14</span>
-                <span className="stat-label">CITIES COVERED</span>
+
+              <div className="journal-studio-right">
+                <p className="journal-studio-desc">
+                  From the House of Studio HID, we are a premier architectural firm known worldwide for wellness-oriented luxury design.
+                </p>
+
+                <div className="journal-studio-stats">
+                  <div className="journal-stat-block">
+                    <span className="journal-stat-value">9+</span>
+                    <span className="journal-stat-name">YEARS</span>
+                  </div>
+                  <div className="journal-stat-block">
+                    <span className="journal-stat-value">70</span>
+                    <span className="journal-stat-name">PROJECTS</span>
+                  </div>
+                  <div className="journal-stat-block">
+                    <span className="journal-stat-value">14</span>
+                    <span className="journal-stat-name">
+                      INTERNATIONAL<br />AWARDS
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

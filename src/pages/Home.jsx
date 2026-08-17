@@ -134,12 +134,12 @@ const Home = () => {
         <div className="hero-editorial-overlay">
           <div className="editorial-top">
             <div className="top-left-info">
-              <div className="info-row">
+              {/* <div className="info-row">
                 <span className="red-dot"></span> STUDIO HID - ARCHITECTURE + INTERIORS
-              </div>
-              <div className="info-row pill-row">
+              </div> */}
+              {/* <div className="info-row pill-row">
                 <span className="red-dot"></span> CURRENTLY FEATURED - THE CANOPY
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -188,9 +188,8 @@ const Home = () => {
       <section className="home-showcase home-fade-up">
         <div className="home-showcase-layout container">
           <div className="showcase-copy">
-            <p className="showcase-eyebrow">AT</p>
             <h2 className="showcase-title">
-              <span className="title-prefix"></span> OURA &amp; CO.,
+              <span className="title-prefix"></span> <span className='At-var'>AT</span> OURA &amp; CO.,
             </h2>
             <p className="showcase-description">
               We deliver creative, detailed interior design concepts for city interiors - from initial
@@ -242,83 +241,114 @@ const Home = () => {
             <h2 className="editorial-section-title">SERVICES</h2>
           </div>
 
-          <div className="services-editorial-grid">
-            <article className="service-editorial-card">
-              <div className="service-editorial-image">
-                <img src="/images/service1.jpg" alt="Interior design consulting" />
-              </div>
-              <div className="service-editorial-body">
-                <div>
-                  <h3>INTERIOR DESIGN CONSULTING</h3>
-                  <ul className="service-bullets">
-                    <li>Space Planning</li>
-                    <li>Concept Direction</li>
-                    <li>Material Direction</li>
-                    <li>3D Visualizations</li>
-                  </ul>
-                </div>
-                <p>Space planning, concept direction, and material cues shaped into a calm first vision.</p>
-              </div>
-            </article>
+          <div className="services-ss-layout">
 
-            <article className="service-editorial-card">
-              <div className="service-editorial-image">
-                <img src="/images/service2.jpg" alt="Full interior planning" />
-              </div>
-              <div className="service-editorial-body">
-                <div>
-                  <h3>FULL INTERIOR DESIGN PLANNING</h3>
-                  <ul className="service-bullets">
-                    <li>Space Planning</li>
-                    <li>Layout &amp; Furniture Specs</li>
-                    <li>Technical Drawings</li>
-                    <li>3D Visualizations</li>
-                  </ul>
-                </div>
-                <p>Layouts, lighting, and finishes aligned before construction begins.</p>
-              </div>
-            </article>
+            {/* TOP ROW: 2 horizontal images */}
+            <div className="services-top-row">
 
-            <article className="service-editorial-card">
-              <div className="service-editorial-image">
-                <img src="/images/service3.jpg" alt="Procurement and furnishing" />
-              </div>
-              <div className="service-editorial-body">
-                <div>
-                  <h3>PROCUREMENT AND FURNISHING OF THE SPACE</h3>
-                  <ul className="service-bullets">
-                    <li>Furniture &amp; Fabric Selection</li>
-                    <li>Custom Millwork</li>
-                    <li>Lighting &amp; Art Curation</li>
-                    <li>Logistics &amp; Installation</li>
-                  </ul>
+              {/* Card 01 — large left, color */}
+              <div className="svc-block svc-block--large">
+                <div className="svc-img svc-img--color">
+                  <img src="/images/service1.jpg" alt="Interior design consulting" />
                 </div>
-                <p>Materials, furniture, and lighting sourced to feel cohesive and complete.</p>
+                <div className="svc-caption svc-caption--below">
+                  <div className="svc-title-wrap">
+                    <h3 className="svc-title">INTERIOR DESIGN<br />CONSULTING</h3>
+                  </div>
+                  <div className="svc-details">
+                    <ul className="svc-list">
+                      <li>Initial Consultation</li>
+                      <li>Recommendations for Improving the Existing Interior</li>
+                    </ul>
+                    <span className="svc-num">01</span>
+                  </div>
+                </div>
               </div>
-            </article>
 
-            <article className="service-editorial-card service-card-tall">
-              <div className="service-editorial-image">
-                <img src="/images/service4.jpg" alt="Complete renovation solution" />
-              </div>
-              <div className="service-editorial-body">
-                <div>
-                  <h3>COMPLETE RENOVATION SOLUTION</h3>
-                  <ul className="service-bullets">
-                    <li>Full Structural &amp; Spatial Redesign</li>
-                    <li>Turnkey Project Execution</li>
-                    <li>On-site Supervision</li>
-                    <li>Quality Control &amp; Delivery</li>
-                  </ul>
+              {/* Card 02 — smaller right, B&W, text beside image */}
+              <div className="svc-block svc-block--side">
+                <div className="svc-img svc-img--bw">
+                  <img src="/images/service2.jpg" alt="Full interior planning" />
                 </div>
-                <p>Existing spaces reworked with a sharper layout and a more elevated finish.</p>
+                <div className="svc-caption svc-caption--side">
+                  <div className="svc-title-pair">
+                    <h3 className="svc-title svc-title--left">FULL<br />PLANNING</h3>
+                    <div className="svc-right-col">
+                      <h3 className="svc-title svc-title--right">INTERIOR DESIGN</h3>
+                      <ul className="svc-list svc-list--right">
+                        <li>Space Planning</li>
+                        <li>Stylistic Solutions</li>
+                        <li>3D Visualizations</li>
+                        <li>Material and Furniture Selection</li>
+                      </ul>
+                      <span className="svc-num">02</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </article>
+            </div>
+
+            {/* BOTTOM ROW: 3 vertical images — image only, all equal */}
+            <div className="services-bottom-row">
+
+              {/* Card 03 — left vertical, color */}
+              <div className="svc-block svc-block--vert svc-block--mid">
+                <div className="svc-img svc-img--vert svc-img--color">
+                  <img src="/images/service3.jpg" alt="Procurement and furnishing" />
+                </div>
+              </div>
+
+              {/* Card — middle vertical, B&W construction */}
+              <div className="svc-block svc-block--vert svc-block--mid">
+                <div className="svc-img svc-img--vert svc-img--bw">
+                  <img src="/images/service4.jpg" alt="Complete renovation solution" />
+                </div>
+              </div>
+
+              {/* Card 04 — right vertical, color */}
+              <div className="svc-block svc-block--vert svc-block--mid">
+                <div className="svc-img svc-img--vert svc-img--color">
+                  <img src="/images/service5.png" alt="Renovation" />
+                </div>
+              </div>
+            </div>
+
+            {/* BOTTOM ROW CAPTIONS — below all 3 images, aligned per column */}
+            <div className="services-bottom-captions">
+
+              {/* Left col: title + number 03 only */}
+              <div className="svc-bottom-cap">
+                <h3 className="svc-title">PROCUREMENT AND FURNISHING<br /><span className="svc-title-indent">OF THE SPACE</span></h3>
+                <span className="svc-num svc-num--left">03</span>
+              </div>
+
+              {/* Middle col: description list only */}
+              <div className="svc-bottom-cap">
+                <ul className="svc-list">
+                  <li>Procurement of Furniture, Appliances, and Finishing Materials</li>
+                  <li>Supplier Coordination and Logistics Management</li>
+                </ul>
+              </div>
+
+              {/* Right col: title pair + description + number 04 */}
+              <div className="svc-bottom-cap">
+                <div className="svc-title-pair svc-title-pair--row">
+                  <h3 className="svc-title">COMPLETE<br />SOLUTION</h3>
+                  <h3 className="svc-title">RENOVATION</h3>
+                </div>
+                <div className="svc-details">
+                  <ul className="svc-list">
+                    <li>Full Supervision of Renovation Works</li>
+                  </ul>
+                  <span className="svc-num">04</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="editorial-section-head editorial-section-head--spaced">
             <h2 className="editorial-section-title">
-              <span className="title-prefix"></span> OUR PROCESS
+              <span className="process-prefix">OUR</span> PROCESS
             </h2>
           </div>
 
@@ -411,11 +441,12 @@ const Home = () => {
           <div className="portfolio-editorial-grid">
             <article className="portfolio-editorial-card">
               <div className="portfolio-editorial-image">
-                <img src="/images/wa6.jpeg" alt="Maison de Lumiere" />
+                <img src="/images/wa6.jpeg" alt="Maison de Lumière" />
               </div>
               <div className="portfolio-editorial-body">
-                <h3>MAISON DE LUMIERE</h3>
-                <p>Residential Interior</p>
+                <h3>MAISON DE LUMIÈRE</h3>
+                <p className="portfolio-desc">creates an atmosphere of serenity and clarity — a home that glows from within.</p>
+                <Link to="/portfolio" className="portfolio-learn-more">Learn more <ArrowRight size={12} /></Link>
               </div>
             </article>
 
@@ -425,17 +456,19 @@ const Home = () => {
               </div>
               <div className="portfolio-editorial-body">
                 <h3>THE QUIET HOME</h3>
-                <p>Private Residence</p>
+                <p className="portfolio-desc">is a sanctuary of stillness and simplicity, designed to offer a retreat from the noise of the outside world.</p>
+                <Link to="/portfolio" className="portfolio-learn-more">Learn more <ArrowRight size={12} /></Link>
               </div>
             </article>
 
             <article className="portfolio-editorial-card">
               <div className="portfolio-editorial-image">
-                <img src="/images/featured5.jpeg" alt="Casa Novva" />
+                <img src="/images/featured5.jpeg" alt="Casa Novak" />
               </div>
               <div className="portfolio-editorial-body">
-                <h3>CASA NOVVA</h3>
-                <p>Hospitality Interior</p>
+                <h3>CASA NOVAK</h3>
+                <p className="portfolio-desc">blends modern elegance with subtle character, creating a home that feels both curated and deeply personal.</p>
+                <Link to="/portfolio" className="portfolio-learn-more">Learn more <ArrowRight size={12} /></Link>
               </div>
             </article>
           </div>

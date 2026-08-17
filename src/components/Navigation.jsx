@@ -5,14 +5,14 @@ import './Navigation.css';
 
 const Navigation = () => {
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const isOverlayNav = location.pathname === '/' || location.pathname === '/journal';
 
   return (
-    <header className={`navigation ${isHome ? 'nav-absolute' : 'nav-static'}`}>
+    <header className={`navigation ${isOverlayNav ? 'nav-absolute' : 'nav-static'}`}>
       <div className="nav-container container">
         <div className="nav-left">
           <Link to="/" className="brand">
-            <span className="brand-text">OURA &amp; CO.</span>
+            <img src="/images/logo.png" alt="hid Studio" className="brand-logo" />
           </Link>
         </div>
 
