@@ -1,82 +1,522 @@
+/* ==========================================================================
+   JOURNAL PAGE STYLES (Studio HID Architectural Design)
+   ========================================================================== */
+
 .journal-page {
-  background-color: var(--bg-color);
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  background-color: #FAF9F6;
+  color: #1A1A1A;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-.journal-header {
-  margin-bottom: 3rem;
+/* Base Utility Classes */
+.journal-section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
 }
 
-.journal-title {
-  font-family: var(--font-serif);
-  font-size: clamp(3rem, 6vw, 6rem);
-  line-height: 1.1;
-  margin-bottom: 1rem;
-}
-
-.journal-subtitle {
-  font-size: 1.25rem;
-  opacity: 0.7;
-  max-width: 600px;
-}
-
-.journal-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-}
-
-.journal-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.journal-video-wrapper {
-  width: 100%;
-  aspect-ratio: 9/16;
-  background-color: #000;
-  margin-bottom: 2rem;
-  overflow: hidden;
-}
-
-.journal-video-wrapper video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(20%) contrast(1.1);
-}
-
-.journal-date {
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+.section-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  opacity: 0.5;
+  color: #777777;
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.section-tag-light {
+  color: #999999;
+}
+
+.journal-section-title {
+  font-family: 'Cinzel', 'Outfit', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: #111111;
+  margin-bottom: 2.5rem;
+}
+
+/* Black Button / Pill Button */
+.journal-btn-black {
+  background: #000000;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.95rem 2.8rem;
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.journal-btn-black:hover {
+  background: #2A2A2A;
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+.journal-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 1px solid #111111;
+  border-radius: 999px;
+  padding: 0.85rem 2.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #111111;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.journal-pill-btn:hover {
+  background: #111111;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   1. HERO HEADLINE & STATS
+   ========================================================================== */
+.journal-hero {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid #ECEAE5;
+}
+
+.journal-hero-top {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 4rem;
+  align-items: flex-end;
+}
+
+.journal-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #888888;
   display: block;
   margin-bottom: 1rem;
 }
 
-.journal-content h2 {
-  font-family: var(--font-serif);
-  font-size: 2rem;
+.journal-hero-title {
+  font-family: 'Cinzel', 'Outfit', serif;
+  font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.12;
+  color: #111111;
+  letter-spacing: -0.02em;
+}
+
+.journal-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.journal-hero-subtext {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #555555;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.journal-stats-grid {
+  display: flex;
+  gap: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ECEAE5;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-family: 'Cinzel', 'Outfit', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #777777;
+  margin-top: 0.35rem;
+}
+
+/* ==========================================================================
+   2. THE FOUNDER FEATURE
+   ========================================================================== */
+.journal-founder-section {
+  padding-top: 4.5rem;
+}
+
+.founder-card-box {
+  background: #FFFFFF;
+  border: 1px solid #EBE9E4;
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.founder-img-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.founder-img-wrapper {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: #F3F1EC;
+  padding: 1.25rem;
+  overflow: hidden;
+}
+
+.founder-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%);
+}
+
+.founder-caption {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888888;
+  margin-top: 1rem;
+}
+
+.founder-text-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-name {
+  font-family: 'Cinzel', 'Outfit', serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 300;
+  color: #111111;
+  margin-bottom: 0.25rem;
+}
+
+.founder-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666666;
+  margin-bottom: 2rem;
+}
+
+.founder-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.founder-bio p {
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: #444444;
+}
+
+.journal-projects-section {
+  width: 100%;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.75rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid #EBE9E4;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+}
+
+.project-img-holder {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: #EBE8E2;
+}
+
+.project-img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-img-holder img {
+  transform: scale(1.06);
+}
+
+.project-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.project-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #111111;
+}
+
+.project-category {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888888;
+}
+
+.projects-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+/* ==========================================================================
+   4. OUR PHILOSOPHY (Dark Section)
+   ========================================================================== */
+.journal-philosophy-wrapper {
+  background: #161616;
+  color: #FFFFFF;
+  padding: 5.5rem 0;
+
+}
+
+.philosophy-title {
+  font-family: 'Cinzel', 'Outfit', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: #FFFFFF;
+  margin-bottom: 3.5rem;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 3rem;
+}
+
+.philosophy-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.phil-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #888888;
   margin-bottom: 1rem;
 }
 
-.journal-content p {
-  font-size: 1rem;
-  line-height: 1.7;
-  opacity: 0.8;
+.philosophy-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
 }
 
+.philosophy-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #AAAAAA;
+}
+
+/* ==========================================================================
+   5. THE MAKING OF LUXURY (Behind The Scenes)
+   ========================================================================== */
+.bts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.bts-card {
+  background: #000000;
+  overflow: hidden;
+  position: relative;
+}
+
+.bts-media-holder {
+  width: 100%;
+  height: 380px;
+  position: relative;
+}
+
+.bts-media-holder video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bts-overlay-tag {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 0.3rem 0.65rem;
+}
+
+/* ==========================================================================
+   6. FEATURED QUOTE
+   ========================================================================== */
+.journal-quote-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.quote-box {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem;
+  border-top: 1px solid #ECEAE5;
+  border-bottom: 1px solid #ECEAE5;
+}
+
+.featured-quote {
+  font-family: 'Cinzel', 'Outfit', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.35;
+  color: #111111;
+  margin: 1.5rem 0;
+  font-style: normal;
+}
+
+.quote-author {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #777777;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   7. CALL TO ACTION
+   ========================================================================== */
+.journal-cta-section {
+  padding-bottom: 6rem;
+}
+
+.cta-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 0;
+}
+
+.cta-title {
+  font-family: 'Cinzel', 'Outfit', serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 300;
+  color: #111111;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
 @media (max-width: 1024px) {
-  .journal-grid {
+  .journal-hero-top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .founder-card-box {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2rem;
+  }
+
+  .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .philosophy-grid,
+  .bts-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
   }
 }
 
-@media (max-width: 768px) {
-  .journal-grid {
+@media (max-width: 600px) {
+  .projects-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+  }
+
+  .journal-stats-grid {
+    flex-direction: column;
+    gap: 1.25rem;
   }
 }

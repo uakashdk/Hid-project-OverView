@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=PT+Sans+Narrow:wght@400;700&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=Outfit:wght@400;500;600;700;800&family=PT+Sans+Narrow:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
   --bg-color: #F6F3EE;
@@ -8,8 +8,8 @@
   --dark-section: #1A1A1A;
   
   --font-serif: 'Cinzel', serif;
-  --font-sans: 'PT Sans Narrow', sans-serif;
-  --font-script: 'Great Vibes', cursive;
+  --font-sans: 'Outfit', 'Inter', sans-serif;
+  --font-display: 'Syne', 'Outfit', sans-serif;
   
   --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
 }

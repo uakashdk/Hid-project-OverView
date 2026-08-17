@@ -12,7 +12,7 @@ const Navigation = () => {
       <div className="nav-container container">
         <div className="nav-left">
           <Link to="/" className="brand">
-            <img src="/images/logo.png" alt="Studio HID Logo" className="brand-logo" />
+            <span className="brand-text">OURA &amp; CO.</span>
           </Link>
         </div>
 

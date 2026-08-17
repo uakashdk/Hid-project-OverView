@@ -1,221 +1,392 @@
-/* Portfolio (Emata Style Layout) */
+/* ==========================================================================
+   EMATA-STYLE WORKS PAGE STYLES (Studio HID Content Preserved)
+   ========================================================================== */
 
-.portfolio-page {
-  background-color: #fcfcfc;
-  color: #111;
+.emata-works-page {
+  background-color: #FAF9F6;
+  color: #1A1A1A;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
   overflow-x: hidden;
-  padding-bottom: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Base Utility Classes */
-.port-section {
-  padding: 2rem 5%;
+.emata-section {
+  padding: 4.5rem 5%;
 }
 
-.port-section-title {
-  font-family: var(--font-sans);
-  font-size: 1rem;
+.emata-section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.25rem;
-  font-weight: 400;
+  color: #111111;
+  margin-bottom: 2.5rem;
 }
 
-.port-btn-black {
-  background: #000;
-  color: #fff;
+.text-center {
+  text-align: center;
+}
+
+/* Black Button Component */
+.emata-btn-black {
+  background: #000000;
+  color: #FFFFFF;
   border: none;
-  padding: 0.8rem 2.5rem;
+  padding: 0.9rem 2.8rem;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
   cursor: pointer;
-  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.port-btn-black:hover {
-  background: #333;
+.emata-btn-black:hover {
+  background: #2A2A2A;
+  transform: translateY(-2px);
+  color: #FFFFFF;
 }
 
-/* 1. Split Hero Section */
-.port-hero {
+/* ==========================================================================
+   1. HERO SECTION (Split 2 Columns)
+   ========================================================================== */
+.emata-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 82vh;
+  width: 100%;
+  position: relative;
+}
+
+.emata-hero-left {
+  background: #F3F1EC;
   display: flex;
-  height: 90vh;
-  min-height: 600px;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 6%;
+  position: relative;
+  border-right: 1px solid #ECEAE5;
 }
 
-.port-hero-text {
-  flex: 1;
-  padding: 0 5%;
-  padding-top: 5.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+.emata-hero-text {
+  max-width: 480px;
+  width: 100%;
 }
 
-.port-title {
-  font-family: var(--font-serif);
-  font-size: clamp(4rem, 8vw, 8rem);
+.emata-title {
+  font-family: 'Cinzel', 'Outfit', serif;
+  font-size: clamp(3.5rem, 6.5vw, 6.5rem);
   font-weight: 300;
   font-style: italic;
   line-height: 1;
-  margin-bottom: 1rem;
+  color: #111111;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
-.port-subtitle {
-  font-size: 0.9rem;
+.emata-subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 2rem;
-  color: #555;
+  color: #555555;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
 }
 
-.port-hero-copy {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #444;
-  max-width: 440px;
-  margin-bottom: 2rem;
+.emata-hero-copy {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #444444;
+  margin-bottom: 2.5rem;
 }
 
-.port-hero-image {
-  flex: 1;
+.emata-hero-right {
   height: 100%;
+  width: 100%;
   overflow: hidden;
+  background: #EBE8E2;
 }
 
-.port-hero-image img {
+.emata-hero-image {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+}
+
+.emata-hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* 2. Horizontal Carousel (Collections & Reviews) */
-.port-collections {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+/* ==========================================================================
+   2. FEATURED COLLECTIONS (Carousel)
+   ========================================================================== */
+.emata-collections {
+  padding-bottom: 3.5rem;
 }
 
-.port-carousel {
+.emata-carousel {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   overflow-x: auto;
-  padding-bottom: 2rem;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 1.5rem;
 }
 
-.port-carousel::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+.emata-carousel::-webkit-scrollbar {
+  display: none;
 }
 
-.port-card {
-  flex: 0 0 calc(25% - 1.5rem);
-  min-width: 250px;
+.emata-product-card {
+  flex: 0 0 290px;
+  background: #FFFFFF;
+  border: 1px solid #EBE9E4;
+  padding: 1.25rem;
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.port-card-img {
+.emata-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+.emata-card-heart {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.emata-card-heart:hover,
+.emata-card-heart.active {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.emata-card-img-holder {
   width: 100%;
   aspect-ratio: 1/1;
+  background: #F7F6F2;
   overflow: hidden;
-  margin-bottom: 1rem;
-  background: #eee;
+  position: relative;
+  margin-bottom: 1.25rem;
 }
 
-.port-card-img img {
+.emata-card-img-holder img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.port-card:hover .port-card-img img {
-  transform: scale(1.05);
+.emata-product-card:hover .emata-card-img-holder img {
+  transform: scale(1.06);
 }
 
-.port-card-info h3 {
-  font-size: 0.95rem;
-  font-weight: 500;
-  margin-bottom: 0.25rem;
+.emata-quick-view-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111111;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
 }
 
-.port-card-info p {
-  font-size: 0.85rem;
-  color: #666;
+.emata-product-card:hover .emata-quick-view-btn {
+  transform: translateY(0);
 }
 
-/* 3. Asymmetric About Us */
-.port-about {
-  display: flex;
-  gap: 2rem;
-  align-items: stretch;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.port-about-left {
-  flex: 1;
-}
-
-.port-about-left p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: #444;
-  max-width: 400px;
-}
-
-.port-about-right {
-  flex: 2;
+.emata-card-info {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.25rem;
 }
 
-.about-img-top {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
+.emata-card-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111111;
 }
 
-.about-img-row {
+.emata-card-category {
+  font-size: 0.82rem;
+  color: #777777;
+}
+
+/* Slider Controls */
+.emata-slider-controls {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 
-.about-img-row img {
+.emata-progress-bar {
   flex: 1;
-  height: 200px;
+  max-width: 400px;
+  height: 2px;
+  background: #E5E3DF;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.emata-progress-fill {
+  height: 100%;
+  background: #111111;
+  transition: width 0.2s ease;
+}
+
+.emata-slider-arrows {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.emata-arrow-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #D5D3CE;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.emata-arrow-btn:hover {
+  background: #111111;
+  color: #FFFFFF;
+  border-color: #111111;
+}
+
+/* ==========================================================================
+   3. ABOUT US SECTION
+   ========================================================================== */
+.emata-about-top-row {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+
+.emata-about-text-top p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #444444;
+  max-width: 440px;
+}
+
+.emata-about-img-wide {
+  width: 100%;
+  height: 310px;
+  overflow: hidden;
+  background: #EEE;
+}
+
+.emata-about-img-wide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-/* 4. Typologies Bento Grid */
-.port-categories {
-  padding-top: 1rem;
-  padding-bottom: 1.5rem;
+.emata-about-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
 }
 
-.port-cat-grid {
+.emata-about-img-small {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #EEE;
+}
+
+.emata-about-img-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.emata-about-text-bottom p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #444444;
+  margin-bottom: 1.5rem;
+}
+
+.emata-link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #111111;
+  text-decoration: none;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 2px;
+  transition: gap 0.3s ease;
+}
+
+.emata-link-more:hover {
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   4. TYPOLOGIES (Bento Grid)
+   ========================================================================== */
+.emata-cat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 250px 250px;
-  gap: 1rem;
+  gap: 1.25rem;
   margin-bottom: 3rem;
 }
 
 .cat-box {
   position: relative;
   overflow: hidden;
-  background: #eee;
+  background: #EBE8E2;
 }
 
 .cat-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cat-box:hover img {
@@ -224,12 +395,15 @@
 
 .cat-label {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 1.25rem;
+  left: 1.25rem;
   font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 0.2rem 0.5rem;
+  letter-spacing: 0.12em;
+  background: rgba(250, 249, 246, 0.9);
+  backdrop-filter: blur(6px);
+  padding: 0.3rem 0.75rem;
+  font-weight: 600;
+  color: #111111;
 }
 
 .cat-tall {
@@ -242,13 +416,7 @@
   grid-row: 1 / 2;
 }
 
-.cat-square-1 {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-
-.cat-square-2 {
-  grid-column: 3 / 4;
+.cat-square {
   grid-row: 2 / 3;
 }
 
@@ -256,351 +424,358 @@
   text-align: center;
 }
 
-/* 5. Newsletter Banner */
-.port-newsletter {
-  display: flex;
-  height: 400px;
-  background: #fff;
-  border-top: 1px solid #eaeaea;
-  border-bottom: 1px solid #eaeaea;
+/* ==========================================================================
+   5. NEWSLETTER CARD BANNER
+   ========================================================================== */
+.emata-newsletter-wrapper {
+  padding: 3rem 5%;
 }
 
-.news-image {
-  flex: 1;
+.emata-newsletter-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  background: #FFFFFF;
+  border: 1px solid #EBE9E4;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.emata-news-img-box {
+  width: 100%;
   height: 100%;
+  min-height: 300px;
 }
 
-.news-image img {
+.emata-news-img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.news-content {
-  flex: 1;
+.emata-news-content-box {
+  padding: 4rem 8%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 3rem;
-  text-align: center;
 }
 
-.news-content h3 {
-  font-size: 1.5rem;
+.emata-news-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
   font-weight: 400;
-  margin-bottom: 1rem;
+  color: #111111;
+  margin-bottom: 0.75rem;
 }
 
-.news-content p {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 2rem;
-  max-width: 300px;
+.emata-news-sub {
+  font-size: 0.88rem;
+  color: #666666;
+  margin-bottom: 2.25rem;
+  max-width: 340px;
+  line-height: 1.6;
 }
 
-.news-form {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
-  max-width: 400px;
-}
-
-.news-form input {
-  flex: 1;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  padding: 0.5rem 0;
-  font-size: 0.85rem;
-  background: transparent;
-  outline: none;
-}
-
-.news-form input:focus {
-  border-bottom-color: #000;
-}
-
-/* 6. Reviews */
-.port-reviews {
-  padding-bottom: 1rem;
-}
-
-.review-card {
-  flex: 0 0 calc(33.333% - 1.33rem);
-  min-width: 280px;
-  border: 1px solid #eaeaea;
-  padding: 2rem;
+.emata-news-form {
   display: flex;
   flex-direction: column;
-  background: #fff;
+  gap: 1.5rem;
+  max-width: 380px;
 }
 
-.review-header {
+.emata-input-group input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 0.6rem 0;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: transparent;
+  outline: none;
+  color: #111111;
+  transition: border-color 0.3s ease;
+}
+
+.emata-input-group input:focus {
+  border-bottom-color: #111111;
+}
+
+.emata-send-btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.emata-news-success {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #F4F8F4;
+  border: 1px solid #D2E4D2;
+  color: #2D6A2D;
+  font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   6. REVIEWS SECTION
+   ========================================================================== */
+.emata-reviews-slider {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 1.5rem;
+}
+
+.emata-reviews-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.emata-review-card {
+  flex: 0 0 350px;
+  background: #FFFFFF;
+  border: 1px solid #EBE9E4;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.emata-review-author {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.5rem;
 }
 
-.review-avatar {
-  width: 40px;
-  height: 40px;
+.emata-review-avatar {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   overflow: hidden;
+  background: #EEEEEE;
+  flex-shrink: 0;
 }
 
-.review-avatar img {
+.emata-review-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.review-card h4 {
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.review-card p {
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: #555;
-  font-style: italic;
-}
-
-/* 7. Footer */
-.port-footer {
-  padding: 4rem 5%;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  gap: 2rem;
-  background: #fff;
-}
-
-.footer-logo h2 {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 300;
-  font-size: 2rem;
-  width: 200px;
-}
-
-.footer-links {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.footer-col h4 {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
+.emata-review-name {
+  font-size: 0.95rem;
   font-weight: 600;
+  color: #111111;
 }
 
-.footer-col a, .footer-col p {
-  display: block;
-  font-size: 0.85rem;
-  color: #666;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
+.emata-review-text {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #444444;
 }
 
-.footer-col a:hover {
-  color: #000;
+/* ==========================================================================
+   7. PROCESS SECTION (Circular Shapes)
+   ========================================================================== */
+.emata-process {
+  background: #FFFFFF;
 }
 
-.newsletter-col input {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  padding: 0.5rem 0;
-  font-size: 0.85rem;
-  background: transparent;
-  outline: none;
-}
-
-/* 8. Process (Circular Shapes) */
-.port-process {
-  background: #fff;
-  padding-top: 1rem;
-}
-.text-center { text-align: center; }
 .process-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
   margin-top: 3rem;
   text-align: center;
 }
+
 .process-circle {
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto 1.5rem auto;
+  background: #EBE8E2;
 }
+
 .process-circle img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
+
 .process-step:hover .process-circle img {
   transform: scale(1.1);
 }
+
 .process-step h3 {
-  font-family: var(--font-serif);
+  font-family: 'Cinzel', 'Outfit', serif;
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-}
-.process-step p {
-  font-size: 0.85rem;
-  color: #666;
+  color: #111111;
 }
 
-/* 9. Signature Gallery (Staggered Arches/Pills) */
-.port-signature {
-  background: #fcfcfc;
+.process-step p {
+  font-size: 0.88rem;
+  color: #666666;
+  max-width: 300px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
+
+/* ==========================================================================
+   8. SIGNATURE GALLERY
+   ========================================================================== */
+.emata-signature {
+  background: #FAF9F6;
+}
+
 .signature-grid {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
 }
+
 .sig-item {
   overflow: hidden;
-  background: #eee;
+  background: #EBE8E2;
 }
+
 .sig-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
+
+.sig-item:hover img {
+  transform: scale(1.06);
+}
+
 .sig-pill {
   width: 120px;
   height: 240px;
   border-radius: 999px;
 }
+
 .sig-arch-tall {
   width: 180px;
   height: 280px;
   border-radius: 100px 100px 0 0;
 }
+
 .sig-circle {
   width: 160px;
   height: 160px;
   border-radius: 50%;
   margin-bottom: 20px;
 }
+
 .sig-arch-wide {
   width: 220px;
   height: 160px;
   border-radius: 110px 110px 0 0;
 }
 
-/* 10. Featured Showcase (Full-Bleed) */
-.port-showcase {
+/* ==========================================================================
+   9. FEATURED SHOWCASE (Full-Bleed)
+   ========================================================================== */
+.emata-showcase {
   position: relative;
-  height: 80vh;
-  min-height: 500px;
+  height: 75vh;
+  min-height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
+  color: #FFFFFF;
 }
+
 .showcase-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: 1;
 }
+
 .showcase-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .showcase-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
 }
+
 .showcase-content {
   position: relative;
   z-index: 2;
 }
+
 .showcase-title {
-  font-family: var(--font-script);
-  font-size: clamp(4rem, 8vw, 8rem);
-  font-weight: 400;
-  color: #8bb3db; /* Light blue from screenshot */
+  font-family: var(--font-display), 'Syne', sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #4b2c1f;
   margin-bottom: 1rem;
 }
+
 .showcase-content p {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  letter-spacing: 0.1em;
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: #FFFFFF;
 }
 
-/* Responsive Overrides */
-@media (max-width: 992px) {
-  .port-hero {
-    flex-direction: column-reverse;
-    height: auto;
-  }
-  .port-hero-text {
-    padding: 4rem 5%;
-    align-items: center;
-    text-align: center;
-  }
-  .port-hero-image {
-    width: 100%;
-    height: 50vh;
-  }
-  
-  .port-about {
-    flex-direction: column;
-  }
-  
-  .port-newsletter {
-    flex-direction: column;
-    height: auto;
-  }
-  .news-image {
-    height: 300px;
-  }
-  
-  .port-footer {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 768px) {
-  .port-cat-grid {
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .emata-hero {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
+    min-height: auto;
   }
-  .cat-tall, .cat-wide, .cat-square-1, .cat-square-2 {
-    grid-column: 1 / 2;
-    grid-row: auto;
-    height: 250px;
+  .emata-hero-left {
+    padding: 4rem 5%;
+    border-right: none;
+    border-bottom: 1px solid #ECEAE5;
   }
-  .news-form {
-    flex-direction: column;
+  .emata-hero-image {
+    min-height: 400px;
+  }
+
+  .emata-about-top-row,
+  .emata-about-bottom-row {
+    grid-template-columns: 1fr;
+  }
+
+  .emata-cat-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .cat-tall, .cat-wide, .cat-square {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+    height: 260px;
+  }
+
+  .emata-newsletter-card {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
   }
 }

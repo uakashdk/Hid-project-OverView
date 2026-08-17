@@ -46,6 +46,15 @@
   flex: 1;
 }
 
+.brand-text {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: inherit;
+}
+
 .brand-logo {
   height: 30px; 
   width: auto;
@@ -112,4 +121,10 @@
   opacity: 0.4;
   margin-left: 0.5rem;
   font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .nav-center {
+    display: none;
+  }
 }
