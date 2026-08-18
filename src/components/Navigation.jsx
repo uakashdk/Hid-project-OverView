@@ -12,8 +12,15 @@ const Navigation = () => {
   return (
     <>
       <header className={`navigation ${isOverlayNav ? 'nav-absolute' : 'nav-static'}`}>
-        <div className="nav-container container">
+        <div className="nav-container ">
           <div className="nav-left">
+            <button
+              className="mobile-menu-btn"
+              onClick={() => setIsMenuOpen(true)}
+              aria-label="Open Menu"
+            >
+              <Menu size={24} />
+            </button>
             <Link to="/" className="brand">
               <img src="/images/logo.png" alt="hid Studio" className="brand-logo" />
             </Link>
@@ -28,18 +35,11 @@ const Navigation = () => {
           </nav>
 
           <div className="nav-right">
-            <button className="bar-btn bar-btn--light nav-search-btn">
+            {/* <button className="bar-btn bar-btn--light nav-search-btn">
               <Search size={16} />
               <span>SEARCH</span>
               <span className="bar-btn__shortcut">CTRL K</span>
-            </button>
-            <button 
-              className="mobile-menu-btn" 
-              onClick={() => setIsMenuOpen(true)}
-              aria-label="Open Menu"
-            >
-              <Menu size={24} />
-            </button>
+            </button> */}
           </div>
         </div>
       </header>

@@ -1,5 +1,5 @@
 .page-wrapper {
-  background: #efe5d8;
+  background: #EFEBE2;
   color: #3d261e;
 }
 
@@ -8,7 +8,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #111;
+  background: #EFEBE2;
 }
 
 .hero-static-bg {
@@ -193,8 +193,8 @@
 
 .title-prefix {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 35px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: 450;
 
 }
 
@@ -426,7 +426,7 @@
 
 .At-var {
   font-weight: 500;
-  font-size: 10px;
+  font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 40px;
   letter-spacing: -0.02em;
@@ -781,16 +781,56 @@
   opacity: 0.95;
 }
 
-.portfolio-editorial-grid {
+.portfolio-carousel-shell {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 3.5rem minmax(0, 1fr) 3.5rem;
+  align-items: center;
   gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.portfolio-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(17rem, 30vw, 28rem);
+  gap: 1.25rem;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 1.5rem 0 2.25rem;
+}
+
+.portfolio-carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .portfolio-editorial-card {
+  scroll-snap-align: center;
   background: transparent;
   border: 1px solid rgba(75, 44, 31, 0.16);
   overflow: hidden;
+  transform: scale(0.9);
+  opacity: 0.72;
+  transition: transform 0.45s ease, opacity 0.45s ease, box-shadow 0.45s ease;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.portfolio-editorial-card.is-active {
+  transform: scale(1.06);
+  opacity: 1;
+  z-index: 2;
+  box-shadow: 0 22px 50px rgba(75, 44, 31, 0.16);
+}
+
+.portfolio-editorial-card:hover {
+  opacity: 1;
 }
 
 .portfolio-editorial-image {
@@ -806,12 +846,14 @@
   transition: transform 0.7s ease;
 }
 
-.portfolio-editorial-card:hover .portfolio-editorial-image img {
+.portfolio-editorial-card:hover .portfolio-editorial-image img,
+.portfolio-editorial-card.is-active .portfolio-editorial-image img {
   transform: scale(1.04);
 }
 
 .portfolio-editorial-body {
   padding: 0.95rem 1rem 1.1rem;
+  background: rgba(243, 237, 229, 0.94);
 }
 
 .portfolio-editorial-body h3 {
@@ -828,6 +870,39 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   opacity: 0.65;
+}
+
+.portfolio-carousel-nav {
+  flex: 0 0 auto;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(75, 44, 31, 0.18);
+  background: rgba(247, 241, 233, 0.92);
+  color: #4b2c1f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(75, 44, 31, 0.08);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.portfolio-carousel-nav:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 248, 241, 1);
+}
+
+.portfolio-carousel-nav:active {
+  transform: translateY(0);
+}
+
+.portfolio-carousel-nav--left {
+  justify-self: start;
+}
+
+.portfolio-carousel-nav--right {
+  justify-self: end;
 }
 
 .editorial-link-row {
@@ -1119,11 +1194,11 @@
 
 /* 6. Behind the Scenes Section */
 .bts-section {
-  padding: 3.5rem 0 4rem;
+  padding: 0 0 4rem;
 }
 
 .bts-header {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .bts-videos-row {
@@ -1247,14 +1322,14 @@
   }
 
   .process-step {
-    font-size: 1.1rem;
+    font-size: 2rem;
     align-self: center;
     text-align: center;
   }
 
   .process-thumb {
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 7rem;
+    height: 6rem;
     margin: 0 auto;
   }
 
@@ -1276,8 +1351,27 @@
     margin: 0 auto;
   }
 
-  .portfolio-editorial-grid {
-    grid-template-columns: 1fr;
+  .portfolio-carousel-shell {
+    gap: 0.5rem;
+  }
+
+  .portfolio-carousel {
+    gap: 0.9rem;
+    padding: 1rem 0.25rem 1.8rem;
+  }
+
+  .portfolio-editorial-card {
+    flex-basis: min(78vw, 20rem);
+    transform: scale(0.92);
+  }
+
+  .portfolio-editorial-card.is-active {
+    transform: scale(1);
+  }
+
+  .portfolio-carousel-nav {
+    width: 2.8rem;
+    height: 2.8rem;
   }
 
   .service-row {

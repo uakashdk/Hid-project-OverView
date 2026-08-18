@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap');
+
 .studio-page {
   background: #efe5d8;
   color: #2f211a;
@@ -71,6 +74,13 @@
   color: #2e1d15;
   margin: 0;
   text-transform: uppercase;
+}
+
+
+.studio-script {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(2.6rem, 6.2vw, 5.8rem);
+  font-weight: 400;
 }
 
 .studio-hero-script {

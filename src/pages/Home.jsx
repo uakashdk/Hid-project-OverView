@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { ArrowRight, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Home.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -44,7 +44,70 @@ const StatCounter = ({ target, hasPlus }) => {
 
 const Home = () => {
   const containerRef = useRef(null);
+  const portfolioCarouselRef = useRef(null);
+  const portfolioCardRefs = useRef([]);
   const [activeProcess, setActiveProcess] = useState(null);
+  const [activePortfolioIndex, setActivePortfolioIndex] = useState(2);
+
+  const portfolioItems = [
+    {
+      title: 'MAISON DE LUMIÈRE',
+      description: 'creates an atmosphere of serenity and clarity — a home that glows from within.',
+      image: '/images/wa6.jpeg',
+      alt: 'Maison de Lumière',
+    },
+    {
+      title: 'THE QUIET HOME',
+      description: 'is a sanctuary of stillness and simplicity, designed to offer a retreat from the noise of the outside world.',
+      image: '/images/project1.png',
+      alt: 'The Quiet Home',
+    },
+    {
+      title: 'CASA NOVAK',
+      description: 'blends modern elegance with subtle character, creating a home that feels both curated and deeply personal.',
+      image: '/images/featured5.jpeg',
+      alt: 'Casa Novak',
+    },
+    {
+      title: 'ATELIER NOIR',
+      description: 'pairs bold contrast with quiet restraint for a home that feels tailored, calm, and contemporary.',
+      image: '/images/wa8.jpeg',
+      alt: 'Atelier Noir',
+    },
+    {
+      title: 'SILK COURT',
+      description: 'uses layered textures and soft light to create a balanced and welcoming interior mood.',
+      image: '/images/wa9.jpeg',
+      alt: 'Silk Court',
+    },
+    {
+      title: 'LATTICE HOUSE',
+      description: 'brings together linear forms and warm finishes for a clean but lived-in result.',
+      image: '/images/wa6.jpeg',
+      alt: 'Lattice House',
+    },
+  ];
+
+  const clampPortfolioIndex = (index) => {
+    if (index < 0) return portfolioItems.length - 1;
+    if (index >= portfolioItems.length) return 0;
+    return index;
+  };
+
+  const focusPortfolioCard = (index) => {
+    const nextIndex = clampPortfolioIndex(index);
+    setActivePortfolioIndex(nextIndex);
+
+    const track = portfolioCarouselRef.current;
+    const card = portfolioCardRefs.current[nextIndex];
+    if (track && card) {
+      const targetLeft = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+      track.scrollTo({
+        left: targetLeft,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -189,7 +252,7 @@ const Home = () => {
         <div className="home-showcase-layout container">
           <div className="showcase-copy">
             <h2 className="showcase-title">
-              <span className="title-prefix"></span> <span className='At-var'>AT</span> OURA &amp; CO.,
+              <span className="title-prefix"></span> <span className='At-var'>AT</span> HBI &amp; STUDIO.,
             </h2>
             <p className="showcase-description">
               We deliver creative, detailed interior design concepts for city interiors - from initial
@@ -246,7 +309,7 @@ const Home = () => {
             {/* TOP ROW: 2 horizontal images */}
             <div className="services-top-row">
 
-              {/* Card 01 — large left, color */}
+              {/* Card 01 â€” large left, color */}
               <div className="svc-block svc-block--large">
                 <div className="svc-img svc-img--color">
                   <img src="/images/service1.jpg" alt="Interior design consulting" />
@@ -265,7 +328,7 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* Card 02 — smaller right, B&W, text beside image */}
+              {/* Card 02 â€” smaller right, B&W, text beside image */}
               <div className="svc-block svc-block--side">
                 <div className="svc-img svc-img--bw">
                   <img src="/images/service2.jpg" alt="Full interior planning" />
@@ -288,24 +351,24 @@ const Home = () => {
               </div>
             </div>
 
-            {/* BOTTOM ROW: 3 vertical images — image only, all equal */}
+            {/* BOTTOM ROW: 3 vertical images â€” image only, all equal */}
             <div className="services-bottom-row">
 
-              {/* Card 03 — left vertical, color */}
+              {/* Card 03 â€” left vertical, color */}
               <div className="svc-block svc-block--vert svc-block--mid">
                 <div className="svc-img svc-img--vert svc-img--color">
                   <img src="/images/service3.jpg" alt="Procurement and furnishing" />
                 </div>
               </div>
 
-              {/* Card — middle vertical, B&W construction */}
+              {/* Card â€” middle vertical, B&W construction */}
               <div className="svc-block svc-block--vert svc-block--mid">
                 <div className="svc-img svc-img--vert svc-img--bw">
                   <img src="/images/service4.jpg" alt="Complete renovation solution" />
                 </div>
               </div>
 
-              {/* Card 04 — right vertical, color */}
+              {/* Card 04 â€” right vertical, color */}
               <div className="svc-block svc-block--vert svc-block--mid">
                 <div className="svc-img svc-img--vert svc-img--color">
                   <img src="/images/service5.png" alt="Renovation" />
@@ -313,7 +376,7 @@ const Home = () => {
               </div>
             </div>
 
-            {/* BOTTOM ROW CAPTIONS — below all 3 images, aligned per column */}
+            {/* BOTTOM ROW CAPTIONS â€” below all 3 images, aligned per column */}
             <div className="services-bottom-captions">
 
               {/* Left col: title + number 03 only */}
@@ -438,39 +501,76 @@ const Home = () => {
             <h2 className="editorial-section-title">PORTFOLIO</h2>
           </div>
 
-          <div className="portfolio-editorial-grid">
-            <article className="portfolio-editorial-card">
-              <div className="portfolio-editorial-image">
-                <img src="/images/wa6.jpeg" alt="Maison de Lumière" />
-              </div>
-              <div className="portfolio-editorial-body">
-                <h3>MAISON DE LUMIÈRE</h3>
-                <p className="portfolio-desc">creates an atmosphere of serenity and clarity — a home that glows from within.</p>
-                <Link to="/portfolio" className="portfolio-learn-more">Learn more <ArrowRight size={12} /></Link>
-              </div>
-            </article>
+          <div className="portfolio-carousel-shell">
+            <button
+              type="button"
+              className="portfolio-carousel-nav portfolio-carousel-nav--left"
+              onClick={() => focusPortfolioCard(activePortfolioIndex - 1)}
+              aria-label="Scroll portfolio left"
+            >
+              <ChevronLeft size={26} />
+            </button>
 
-            <article className="portfolio-editorial-card">
-              <div className="portfolio-editorial-image">
-                <img src="/images/project1.png" alt="The Quiet Home" />
-              </div>
-              <div className="portfolio-editorial-body">
-                <h3>THE QUIET HOME</h3>
-                <p className="portfolio-desc">is a sanctuary of stillness and simplicity, designed to offer a retreat from the noise of the outside world.</p>
-                <Link to="/portfolio" className="portfolio-learn-more">Learn more <ArrowRight size={12} /></Link>
-              </div>
-            </article>
+            <div
+              className="portfolio-carousel"
+              ref={portfolioCarouselRef}
+              aria-label="Portfolio carousel"
+              style={{
+                display: 'grid',
+                gridAutoFlow: 'column',
+                gridAutoColumns: 'clamp(17rem, 30vw, 28rem)',
+                gap: '1.25rem',
+                width: '100%',
+                minWidth: 0,
+                overflowX: 'auto',
+                overflowY: 'visible',
+                scrollSnapType: 'x mandatory',
+                scrollBehavior: 'smooth',
+                WebkitOverflowScrolling: 'touch',
+                scrollbarWidth: 'none',
+                padding: '1.5rem 0 2.25rem',
+              }}
+            >
+              {portfolioItems.map((item, index) => (
+                <article
+                  key={item.title}
+                  ref={(el) => {
+                    portfolioCardRefs.current[index] = el;
+                  }}
+                  className={`portfolio-editorial-card ${index === activePortfolioIndex ? 'is-active' : ''}`}
+                  onClick={() => focusPortfolioCard(index)}
+                  role="button"
+                  tabIndex={0}
+                  style={{ scrollSnapAlign: 'center' }}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      focusPortfolioCard(index);
+                    }
+                  }}
+                >
+                  <div className="portfolio-editorial-image">
+                    <img src={item.image} alt={item.alt} />
+                  </div>
+                  <div className="portfolio-editorial-body">
+                    <h3>{item.title}</h3>
+                    <p className="portfolio-desc">{item.description}</p>
+                    <Link to="/portfolio" className="portfolio-learn-more">
+                      Preview <ArrowRight size={12} />
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
 
-            <article className="portfolio-editorial-card">
-              <div className="portfolio-editorial-image">
-                <img src="/images/featured5.jpeg" alt="Casa Novak" />
-              </div>
-              <div className="portfolio-editorial-body">
-                <h3>CASA NOVAK</h3>
-                <p className="portfolio-desc">blends modern elegance with subtle character, creating a home that feels both curated and deeply personal.</p>
-                <Link to="/portfolio" className="portfolio-learn-more">Learn more <ArrowRight size={12} /></Link>
-              </div>
-            </article>
+            <button
+              type="button"
+              className="portfolio-carousel-nav portfolio-carousel-nav--right"
+              onClick={() => focusPortfolioCard(activePortfolioIndex + 1)}
+              aria-label="Scroll portfolio right"
+            >
+              <ChevronRight size={26} />
+            </button>
           </div>
 
           <div className="view-all-wrapper editorial-link-row">
@@ -479,6 +579,16 @@ const Home = () => {
             </Link>
           </div>
         </div>
+        {/* 6. FEATURED QUOTE */}
+      <section className="journal-section journal-quote-section journal-fade-up container">
+        <div className="quote-box">
+          <span className="section-tag"> WHAT ARCHITECTS SAY</span>
+          <blockquote className="featured-quote">
+            "Studio HID brings a level of sophistication and timelessness to their spaces that is simply unparalleled. Truly master architects."
+          </blockquote>
+          <cite className="quote-author">â€” VOGUE ARCHITECTURE</cite>
+        </div>
+      </section>
       </section>
 
       <section className="bts-section home-fade-up">
@@ -511,3 +621,4 @@ const Home = () => {
 };
 
 export default Home;
+

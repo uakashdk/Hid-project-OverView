@@ -83,7 +83,7 @@ const About = () => {
 
         <div className="studio-hero-content container">
           <h1 className="studio-hero-title">
-            <span className="studio-hero-script">We</span> CREATE A
+            <span className="studio-hero-script"><span className='studio-script'>We</span></span> CREATE A
             <br />
             SPACE IN WHICH YOU
             <br />
@@ -258,7 +258,7 @@ const About = () => {
           </div>
         </div>
       </section>
-
+      
     </div>
   );
 };
