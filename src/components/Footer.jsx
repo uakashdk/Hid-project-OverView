@@ -7,8 +7,18 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-top">
-          <div className="footer-logo">
-            <img src="/images/logo.png" alt="hid" />
+          <div className="footer-left-content">
+            <div className="footer-logo">
+              <img src="/images/logo.png" alt="hid" />
+            </div>
+            <div className="footer-haus-text">
+              <h4>HAUS OF CURIOSITIES</h4>
+              <p>
+                The quest for answers about the world around is endless, and one
+                soon finds that the purpose of the search has never been the answers,
+                they seek, but the artifacts of their curiosity they collect on the journey.
+              </p>
+            </div>
           </div>
 
           <div className="footer-links-container">

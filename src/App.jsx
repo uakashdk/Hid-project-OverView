@@ -71,7 +71,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
         </Routes>
       </main>
-      {location.pathname !== '/contact' && location.pathname !== '/about' && <FooterContact />}
+      {location.pathname !== '/contact' && <FooterContact />}
       <Footer />
     </>
   );

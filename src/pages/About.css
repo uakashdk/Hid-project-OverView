@@ -14,8 +14,9 @@
 }
 
 /* =========================================
-   1. STUDIO HERO (Screenshot 1)
+   1. STUDIO HERO
    ========================================= */
+
 .studio-hero {
   position: relative;
   min-height: 85vh;
@@ -43,13 +44,11 @@
 .studio-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(239, 229, 216, 0.95) 0%,
-    rgba(239, 229, 216, 0.92) 28%,
-    rgba(28, 21, 18, 0.3) 55%,
-    rgba(28, 21, 18, 0.75) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(239, 229, 216, 0.95) 0%,
+      rgba(239, 229, 216, 0.92) 28%,
+      rgba(28, 21, 18, 0.3) 55%,
+      rgba(28, 21, 18, 0.75) 100%);
 }
 
 .studio-hero-content {
@@ -64,7 +63,7 @@
 }
 
 .studio-hero-title {
-  font-family: var(--font-display), 'Syne', sans-serif;
+  font-family: var(--font-display), "Syne", sans-serif;
   font-size: clamp(2.6rem, 6.2vw, 5.8rem);
   line-height: 0.96;
   font-weight: 700;
@@ -75,7 +74,12 @@
 }
 
 .studio-hero-script {
-  font-family: 'Playfair Display', 'Cormorant Garamond', 'Snell Roundhand', Georgia, serif;
+  font-family:
+    "Playfair Display",
+    "Cormorant Garamond",
+    "Snell Roundhand",
+    Georgia,
+    serif;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
@@ -102,7 +106,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
 .studio-hero-scroll-btn:hover {
@@ -111,8 +117,9 @@
 }
 
 /* =========================================
-   2. ABOUT US & STATS (Screenshot 2)
+   2. ABOUT US & STATS
    ========================================= */
+
 .studio-about {
   padding: 5rem 0 3rem;
   background: #efe5d8;
@@ -125,7 +132,7 @@
 }
 
 .studio-about-title {
-  font-family: var(--font-display), 'Syne', sans-serif;
+  font-family: var(--font-display), "Syne", sans-serif;
   font-size: clamp(2.4rem, 4.5vw, 3.8rem);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -161,7 +168,8 @@
   opacity: 0.88;
 }
 
-/* STATS ROW */
+/* STATS */
+
 .studio-stats {
   padding: 2rem 0 5rem;
   background: #efe5d8;
@@ -208,7 +216,7 @@
 }
 
 .studio-stat-number {
-  font-family: var(--font-display), 'Syne', sans-serif;
+  font-family: var(--font-display), "Syne", sans-serif;
   font-size: clamp(3rem, 5.5vw, 5.2rem);
   font-weight: 400;
   line-height: 1;
@@ -220,6 +228,7 @@
 /* =========================================
    3. OUR PHILOSOPHY
    ========================================= */
+
 .studio-philosophy {
   position: relative;
   overflow: hidden;
@@ -298,7 +307,7 @@
 }
 
 .phil-title {
-  font-family: var(--font-display), 'Syne', sans-serif;
+  font-family: var(--font-display), "Syne", sans-serif;
   font-size: clamp(2.8rem, 6vw, 5.5rem);
   font-weight: 700;
   line-height: 0.95;
@@ -320,8 +329,9 @@
 }
 
 /* =========================================
-   4. TEAM SECTION (Screenshot 3)
+   4. TEAM SECTION
    ========================================= */
+
 .studio-team {
   padding: 5rem 0 6rem;
   background: #efe5d8;
@@ -334,7 +344,7 @@
 }
 
 .studio-team-head-center h2 {
-  font-family: var(--font-display), 'Syne', sans-serif;
+  font-family: var(--font-display), "Syne", sans-serif;
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
   line-height: 1.15;
@@ -376,7 +386,9 @@
   color: #2e1d15;
   cursor: pointer;
   padding: 0.2rem 0.5rem;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .team-arrow-btn:hover {
@@ -420,7 +432,9 @@
   position: absolute;
   inset: auto 0 0 0;
   padding: 1rem 1.1rem;
-  background: linear-gradient(to top, rgba(20, 14, 11, 0.85) 0%, rgba(20, 14, 11, 0) 100%);
+  background: linear-gradient(to top,
+      rgba(20, 14, 11, 0.85) 0%,
+      rgba(20, 14, 11, 0) 100%);
   color: #fff;
 }
 
@@ -440,7 +454,8 @@
   color: #e0d4c8;
 }
 
-/* Featured Column for Alexey Nazarov */
+/* Featured Column */
+
 .team-member-col-featured {
   display: flex;
   flex-direction: column;
@@ -466,135 +481,9 @@
   opacity: 0.8;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .studio-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .studio-team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .studio-stats-grid {
-    grid-template-columns: 1fr;
-  }
-  .studio-team-grid {
-    grid-template-columns: 1fr;
-  }
-  .studio-stat-card {
-    border-right: none;
-    border-bottom: 1px solid rgba(47, 33, 26, 0.14);
-  }
-.studio-contact {
-  padding: 2rem 0 4rem;
-}
-
-.studio-contact-inner {
-  border-top: 1px solid rgba(47, 33, 26, 0.16);
-  padding-top: 2rem;
-}
-
-.studio-contact-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  align-items: flex-end;
-  margin-bottom: 1.8rem;
-}
-
-.studio-contact-head h2 {
-  font-family: var(--font-sans);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  line-height: 0.9;
-  font-weight: 300;
-  letter-spacing: -0.06em;
-  margin: 0;
-}
-
-.studio-contact-head span {
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.studio-form {
-  max-width: 760px;
-}
-
-.studio-form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.studio-form-row input {
-  width: 100%;
-  border: 1px solid rgba(47, 33, 26, 0.18);
-  background: rgba(255, 255, 255, 0.15);
-  padding: 0.95rem 1rem;
-  border-radius: 999px;
-  outline: none;
-  font: inherit;
-  color: inherit;
-}
-
-.studio-form-row-full {
-  grid-template-columns: 1fr;
-}
-
-.studio-form-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-}
-
-.studio-form-actions label {
-  display: flex;
-  gap: 0.55rem;
-  align-items: center;
-  font-size: 0.82rem;
-  opacity: 0.78;
-}
-
-.studio-form-actions input[type='checkbox'] {
-  accent-color: #4b2c1f;
-}
-
-.studio-form-actions button {
-  border: 0;
-  background: #4b2c1f;
-  color: #fff;
-  padding: 0.95rem 1.8rem;
-  border-radius: 999px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.studio-footer-minimal {
-  margin-top: 1.8rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(47, 33, 26, 0.16);
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.studio-socials,
-.studio-contact-details {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
+/* =========================================
+   RESPONSIVE - 900px
+   ========================================= */
 
 @media (max-width: 900px) {
   .studio-stats-grid {
@@ -605,7 +494,7 @@
     border-right: none;
   }
 
-  .studio-stat-card:nth-child(-n+2) {
+  .studio-stat-card:nth-child(-n + 2) {
     border-bottom: 1px solid rgba(47, 33, 26, 0.14);
   }
 
@@ -622,6 +511,10 @@
     height: 340px;
   }
 }
+
+/* =========================================
+   RESPONSIVE - 720px
+   ========================================= */
 
 @media (max-width: 720px) {
   .studio-page .container {
@@ -672,19 +565,5 @@
 
   .studio-team-grid {
     grid-template-columns: 1fr;
-  }
-
-  .studio-contact-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .studio-form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .studio-form-actions {
-    align-items: flex-start;
-    flex-direction: column;
   }
 }

@@ -123,8 +123,27 @@
   font-weight: 400;
 }
 
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .nav-center {
     display: none;
+  }
+  
+  .nav-search-btn {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

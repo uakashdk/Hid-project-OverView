@@ -45,47 +45,6 @@ const StatCounter = ({ target, suffix = '' }) => {
 
 const About = () => {
   const containerRef = useRef(null);
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: '',
-    consent: false
-  });
-  const [submitStatus, setSubmitStatus] = useState('');
-
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitStatus('Submitting...');
-    try {
-      const response = await fetch('http://localhost:5555/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitStatus('Message sent successfully!');
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '', consent: false });
-      } else {
-        setSubmitStatus('Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setSubmitStatus('Failed to send message. Please try again.');
-    }
-  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -246,7 +205,7 @@ const About = () => {
           <div className="studio-team-grid">
             <article className="team-member-card">
               <div className="team-member-img">
-                <img src="/images/buss2.jpeg" alt="Sergey Kalinin" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM-SBrawJNHTgR3MjzWoxZEUt06_CEy2LqWGNlnMSgkw&s=10" alt="Sergey Kalinin" />
               </div>
               <div className="team-member-info">
                 <h3>Sergey Kalinin</h3>
@@ -277,31 +236,19 @@ const About = () => {
               </div>
             </div>
 
-            <form className="studio-form" onSubmit={handleSubmit}>
-              <div className="studio-form-row">
-                <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="First Name" required />
-                <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder="Last Name" required />
+            <article className="team-member-card">
+              <div className="team-member-img">
+                <img src="/images/buss2.jpeg" alt="Alexey Nazarov" />
               </div>
-              <div className="studio-form-row">
-                <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" required />
-                <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="Phone" required />
+              <div className="team-member-info">
+                <h3>Alexey Nazarov</h3>
+                <p>CHIEF ARCHITECT</p>
               </div>
-              <div className="studio-form-row studio-form-row-full">
-                <input type="text" name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell us about your project" required />
-              </div>
-              <div className="studio-form-actions">
-                <label>
-                  <input type="checkbox" name="consent" checked={formData.consent} onChange={handleInputChange} required />
-                  I agree to the processing of personal data.
-                </label>
-                <button type="submit">SUBMIT</button>
-              </div>
-              {submitStatus && <p style={{ marginTop: '1rem', color: '#666' }}>{submitStatus}</p>}
-            </form>
+            </article>
 
             <article className="team-member-card">
               <div className="team-member-img">
-                <img src="/images/buss2.jpeg" alt="Aibek Zhanuzakov" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSURsXr44Z2Bnh1vB3wb31hrMuIstNp_bcUTb7idYVwVw&s=10" alt="Aibek Zhanuzakov" />
               </div>
               <div className="team-member-info">
                 <h3>Aibek Zhanuzakov</h3>
@@ -311,6 +258,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };
