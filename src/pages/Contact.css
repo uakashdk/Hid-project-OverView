@@ -21,7 +21,7 @@
   gap: 3.5rem;
   align-items: flex-start;
   padding-top: 4rem;
-  padding-bottom: 5.5rem;
+  padding-bottom: 2rem;
 }
 
 /* Left Hero Typography */
@@ -170,7 +170,7 @@
    SECTION 2: STAGES OF CREATING A PROJECT
    ========================================================================== */
 .contact-stages-wrapper {
-  padding-top: 4rem;
+  padding-top: 1rem;
   padding-bottom: 6rem;
   border-top: none;
 }

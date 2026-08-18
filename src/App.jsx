@@ -14,6 +14,8 @@ import Portfolio from './pages/Portfolio';
 import ProjectDetail from './pages/ProjectDetail';
 import Services from './pages/Services';
 import Journal from './pages/Journal';
+import Blogs from './pages/Blogs';
+import BlogArticle from './pages/BlogArticle';
 import Contact from './pages/Contact';
 import Inquiry from './pages/Inquiry';
 import Testimonials from './pages/Testimonials';
@@ -65,6 +67,8 @@ function App() {
           <Route path="/portfolio/:id" element={<ProjectDetail />} />
           <Route path="/services" element={<Services />} />
           <Route path="/journal" element={<Journal />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:slug" element={<BlogArticle />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/inquiry" element={<Inquiry />} />
           <Route path="/testimonials" element={<Testimonials />} />

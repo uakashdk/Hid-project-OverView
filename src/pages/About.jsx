@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDown } from 'lucide-react';
+import StudioJournalSection from '../components/StudioJournalSection';
+import Press from '../components/Press';
 import './About.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -45,6 +47,9 @@ const StatCounter = ({ target, suffix = '' }) => {
 
 const About = () => {
   const containerRef = useRef(null);
+  const heroContentRef = useRef(null);
+  const heroTitleRef = useRef(null);
+  const heroLineRefs = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -72,6 +77,36 @@ const About = () => {
     return () => ctx.revert();
   }, []);
 
+  useLayoutEffect(() => {
+    const titleEl = heroTitleRef.current;
+    const contentEl = heroContentRef.current;
+    const lineEls = heroLineRefs.current.filter(Boolean);
+    if (!titleEl || !contentEl || !lineEls.length) return undefined;
+
+    const baseFontSize = parseFloat(window.getComputedStyle(titleEl).fontSize);
+
+    const fitTitle = () => {
+      const availableWidth = contentEl.clientWidth;
+      const widestLine = Math.max(...lineEls.map((line) => line.scrollWidth));
+      if (!availableWidth || !widestLine) return;
+
+      const scale = Math.min(1, availableWidth / widestLine);
+      const fittedSize = Math.max(baseFontSize * scale, 32);
+      titleEl.style.fontSize = `${fittedSize}px`;
+    };
+
+    fitTitle();
+
+    const observer = new ResizeObserver(fitTitle);
+    observer.observe(contentEl);
+    window.addEventListener('resize', fitTitle);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', fitTitle);
+    };
+  }, []);
+
   return (
     <div className="studio-page" ref={containerRef}>
       {/* 1. HERO SECTION (Screenshot 1) */}
@@ -81,13 +116,23 @@ const About = () => {
           <div className="studio-hero-overlay" />
         </div>
 
-        <div className="studio-hero-content container">
-          <h1 className="studio-hero-title">
-            <span className="studio-hero-script"><span className='studio-script'>We</span></span> CREATE A
-            <br />
-            SPACE IN WHICH YOU
-            <br />
-            <span className="studio-hero-live">WANT TO LIVE</span>
+        <div className="studio-hero-content container" ref={heroContentRef}>
+          <h1 className="studio-hero-title" ref={heroTitleRef}>
+            <span className="studio-hero-line" ref={(el) => (heroLineRefs.current[0] = el)}>
+              <span className="studio-hero-script">
+                <span className="studio-script">We</span>
+              </span>{' '}
+              <span className="studio-hero-core">CREATE A</span>
+            </span>
+            <span className="studio-hero-line" ref={(el) => (heroLineRefs.current[1] = el)}>
+              SPACE IN WHICH YOU
+            </span>
+            <span
+              className="studio-hero-line studio-hero-line--emphasis"
+              ref={(el) => (heroLineRefs.current[2] = el)}
+            >
+              WANT TO LIVE
+            </span>
           </h1>
 
           <div className="studio-hero-scroll-btn">
@@ -258,6 +303,16 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <StudioJournalSection />
+
+      <Press
+        eyebrow=" Studio PRESS"
+        heading="Recent press coverage."
+        headingEmphasis="press"
+        description="Selected features, interviews, and publications about Habitat."
+        verticalLabel="(BESPOKE LIVING SPACES — STUDIO)"
+      />
       
     </div>
   );

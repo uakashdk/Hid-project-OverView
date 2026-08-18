@@ -2,7 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap');
 
 .studio-page {
-  background: #efe5d8;
+  --studio-page-bg:
+    radial-gradient(circle at top left, rgba(139, 107, 74, 0.08), transparent 34%),
+    linear-gradient(180deg, #f7f2ea 0%, #f3ede4 100%);
+  background:
+    var(--studio-page-bg);
   color: #2f211a;
   overflow-x: hidden;
 }
@@ -28,29 +32,35 @@
   justify-content: space-between;
   padding: 3rem 0 2rem;
   overflow: hidden;
-  background: #1c1512;
+  background: transparent;
 }
 
 .studio-hero-bg {
   position: absolute;
   inset: 0;
   z-index: 1;
+  background: transparent;
 }
 
 .studio-hero-bg img {
   width: 100%;
-  height: 100%;
+  height: 58%;
   object-fit: cover;
-  object-position: center 60%;
+  object-position: center center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .studio-hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-      rgba(239, 229, 216, 0.95) 0%,
-      rgba(239, 229, 216, 0.92) 28%,
-      rgba(28, 21, 18, 0.3) 55%,
+      rgba(247, 242, 234, 1) 0%,
+      rgba(247, 242, 234, 0.98) 34%,
+      rgba(247, 242, 234, 0.2) 46%,
+      rgba(28, 21, 18, 0.14) 62%,
       rgba(28, 21, 18, 0.75) 100%);
 }
 
@@ -59,7 +69,9 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.25rem;
   height: 100%;
   min-height: 75vh;
   padding-top: 1rem;
@@ -74,8 +86,20 @@
   color: #2e1d15;
   margin: 0;
   text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 100%;
 }
 
+.studio-hero-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.studio-hero-core {
+  font: inherit;
+}
 
 .studio-script {
   font-family: "Dancing Script", cursive;
@@ -98,14 +122,14 @@
   margin-right: 0.2em;
 }
 
-.studio-hero-live {
+.studio-hero-line--emphasis {
   color: #ffffff;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
 .studio-hero-scroll-btn {
   align-self: center;
-  margin-top: auto;
+  margin-top: clamp(6rem, 18vh, 11rem);
   padding: 0.6rem 1.2rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.25);
@@ -132,7 +156,7 @@
 
 .studio-about {
   padding: 5rem 0 3rem;
-  background: #efe5d8;
+  background: transparent;
 }
 
 .studio-about-inner {
@@ -182,11 +206,14 @@
 
 .studio-stats {
   padding: 2rem 0 5rem;
-  background: #efe5d8;
+  background: transparent;
 }
 
 .studio-stats-inner {
   padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .studio-section-label {
@@ -195,6 +222,8 @@
   font-weight: 600;
   color: #2e1d15;
   margin: 0 0 2rem;
+  text-align: center;
+  width: 100%;
 }
 
 .studio-stats-grid {
@@ -344,7 +373,7 @@
 
 .studio-team {
   padding: 5rem 0 6rem;
-  background: #efe5d8;
+  background: transparent;
 }
 
 .studio-team-head-center {
@@ -535,6 +564,10 @@
     font-size: clamp(2.2rem, 9vw, 3.8rem);
   }
 
+  .studio-hero-bg img {
+    height: 64%;
+  }
+
   .studio-stats-grid {
     grid-template-columns: 1fr;
   }
@@ -548,6 +581,10 @@
 
   .studio-stat-card:last-child {
     border-bottom: none;
+  }
+
+  .studio-section-label {
+    margin-bottom: 1.4rem;
   }
 
   .studio-philosophy {
