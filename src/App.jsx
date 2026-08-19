@@ -20,6 +20,7 @@ import Contact from './pages/Contact';
 import Inquiry from './pages/Inquiry';
 import Testimonials from './pages/Testimonials';
 import FAQ from './pages/FAQ';
+// import Preloader from "./components/Preloader";
 
 function App() {
   const location = useLocation();
@@ -77,6 +78,9 @@ function App() {
       </main>
       {location.pathname !== '/contact' && <FooterContact />}
       <Footer />
+      {/* {loading && <Preloader onFinish={() => setLoading(false)} />}
+      <div className={`site-content ${loading ? "is-hidden" : "reveal"}`}>
+      </div> */}
     </>
   );
 }

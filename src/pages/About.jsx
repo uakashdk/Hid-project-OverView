@@ -198,31 +198,22 @@ const About = () => {
 
       {/* 3. OUR PHILOSOPHY SECTION */}
       <section className="studio-philosophy studio-reveal">
-        <div className="studio-philosophy-arch">
-          <div className="arch arch-sm arch-left">
-            <img src="/images/palm2.png" alt="" />
+        <div className="studio-philosophy-shell">
+          <div className="studio-philosophy-arch">
+            <img
+              src="/images/Philosphy.png"
+              alt="Our philosophy"
+            />
           </div>
-          <div className="arch arch-md arch-mid-left">
-            <img src="/images/palm6.png" alt="" />
-          </div>
-          <div className="arch arch-lg arch-center">
-            <img src="/images/palm8.png" alt="" />
-          </div>
-          <div className="arch arch-md arch-mid-right">
-            <img src="/images/palm7.png" alt="" />
-          </div>
-          <div className="arch arch-sm arch-right">
-            <img src="/images/palm3.png" alt="" />
-          </div>
-        </div>
-        <div className="studio-philosophy-overlay-content container">
-          <div className="studio-philosophy-title-center">
-            <span className="phil-our">OUR</span>
-            <span className="phil-title">PHILOSOPHY</span>
+          <div className="studio-philosophy-title-overlay">
+            <div className="studio-philosophy-title-center">
+              <span className="phil-our">OUR</span>
+              <span className="phil-title">PHILOSOPHY</span>
+            </div>
           </div>
           <p className="studio-philosophy-text-bottom">
-            People who create the architecture of the future understand that design is not only
-            visual. It is emotional, functional, and shaped by how a place supports daily life.
+            Architecture in which meaning is more important than form, and space is more
+            important than walls.
           </p>
         </div>
       </section>

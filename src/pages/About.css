@@ -264,6 +264,7 @@
   margin-top: 2rem;
 }
 
+
 /* =========================================
    3. OUR PHILOSOPHY
    ========================================= */
@@ -272,99 +273,99 @@
   position: relative;
   overflow: hidden;
   margin: 0;
-  background: #d8d1c6;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 0;
+  background: #e8e2d9;
+  padding: 0;
+  min-height: clamp(420px, 50vw, 620px);
 }
+
+.studio-philosophy-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
+/* ---- Arch image (centered, oversized so sides get clipped) ---- */
 
 .studio-philosophy-arch {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-}
-
-.arch {
-  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(400px, 48vw, 600px);
+  height: 100%;
   border-radius: 999px 999px 0 0;
-  box-shadow: 0 20px 50px rgba(47, 33, 26, 0.12);
-  border: 1px solid rgba(47, 33, 26, 0.15);
-  background: #cfc7bc;
+  overflow: hidden;
 }
 
-.arch img {
+.studio-philosophy-arch img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
+  display: block;
 }
 
-.arch-sm {
-  width: 130px;
-  height: 220px;
-}
+/* ---- Title overlaid centered on the image ---- */
 
-.arch-md {
-  width: 190px;
-  height: 320px;
-}
-
-.arch-lg {
-  width: 290px;
-  height: 440px;
-}
-
-.studio-philosophy-overlay-content {
-  position: relative;
-  z-index: 2;
+.studio-philosophy-title-overlay {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  min-height: 460px;
-  width: 100%;
-  text-align: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .studio-philosophy-title-center {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #f6efe4;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .phil-our {
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-family: var(--font-display), "Syne", sans-serif;
+  font-size: clamp(2.8rem, 5.5vw, 5.4rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.28);
 }
 
 .phil-title {
   font-family: var(--font-display), "Syne", sans-serif;
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(2.8rem, 5.5vw, 5.4rem);
   font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.28);
+  margin-left: 70%;
 }
 
+/* ---- Quote paragraph (right-aligned, bottom) ---- */
+
 .studio-philosophy-text-bottom {
-  max-width: 24rem;
+  position: absolute;
+  right: clamp(1.5rem, 4vw, 3.5rem);
+  bottom: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 18rem;
   margin: 0;
-  padding: 1.1rem 1.4rem;
-  background: rgba(239, 229, 216, 0.85);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(47, 33, 26, 0.14);
-  font-size: 0.86rem;
-  line-height: 1.6;
-  color: #2f211a;
-  border-radius: 4px;
+  padding: 0;
+  background: transparent;
+  font-size: clamp(0.75rem, 0.95vw, 0.88rem);
+  line-height: 1.65;
+  color: rgba(60, 48, 38, 0.7);
+  text-align: right;
+  text-wrap: balance;
+  z-index: 2;
 }
 
 /* =========================================
@@ -375,7 +376,6 @@
   padding: 5rem 0 6rem;
   background: transparent;
 }
-
 .studio-team-head-center {
   text-align: center;
   max-width: 660px;
@@ -541,14 +541,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .studio-philosophy {
-    min-height: 500px;
-  }
-
-  .arch-lg {
-    width: 220px;
-    height: 340px;
-  }
 }
 
 /* =========================================
@@ -588,26 +580,22 @@
   }
 
   .studio-philosophy {
-    min-height: 460px;
+    min-height: 380px;
   }
 
   .studio-philosophy-arch {
-    gap: 0.5rem;
+    width: clamp(280px, 70vw, 380px);
   }
 
-  .arch-sm {
-    width: 60px;
-    height: 120px;
+  .phil-title {
+    font-size: clamp(2rem, 10vw, 3rem);
   }
 
-  .arch-md {
-    width: 90px;
-    height: 180px;
-  }
-
-  .arch-lg {
-    width: 140px;
-    height: 240px;
+  .studio-philosophy-text-bottom {
+    right: 1rem;
+    bottom: 1rem;
+    max-width: 14rem;
+    font-size: 0.72rem;
   }
 
   .studio-team-grid {
